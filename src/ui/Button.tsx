@@ -50,3 +50,5 @@ export const Button = memo(
     );
   }
 );
+
+Button.displayName = "memo(Button)";
