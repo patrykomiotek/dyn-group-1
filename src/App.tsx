@@ -1,6 +1,7 @@
 // import { Fragment } from "react";
 import "./App.css";
-import { Generator } from "./components/Generator";
+import { FormState } from "./components/FormState";
+// import { Generator } from "./components/Generator";
 // import { Button } from "./ui/Button";
 
 // import { Text } from "./ui/Text";
@@ -15,7 +16,8 @@ function App() {
         Click me
       </Button>
       <Button>Click me too</Button> */}
-      <Generator />
+      {/* <Generator /> */}
+      <FormState />
     </>
   );
 }
