@@ -26,27 +26,29 @@ export function FormRefsRHF() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="E-mail" id="email" type="email" {...register("email")} />
-      {errors && errors.email && (
-        <p style={{ color: "red" }}>{`${errors.email.message}`}</p>
-      )}
+      <Input
+        label="E-mail"
+        id="email"
+        type="email"
+        error={errors.email}
+        {...register("email")}
+      />
+
       <Input
         label="Password"
         id="password"
         type="password"
+        error={errors.password}
         {...register("password")}
       />
-      {errors && errors.password && (
-        <p style={{ color: "red" }}>{`${errors.password.message}`}</p>
-      )}
+
       <Input
         label="Favorite language"
         id="favLanguage"
+        error={errors.favLanguage}
         {...register("favLanguage")}
       />
-      {errors && errors.favLanguage && (
-        <p style={{ color: "red" }}>{`${errors.favLanguage.message}`}</p>
-      )}
+
       <Button type="submit">Submit</Button>
     </form>
   );
