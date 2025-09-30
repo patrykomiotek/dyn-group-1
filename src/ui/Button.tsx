@@ -19,6 +19,7 @@ type Props = {
   color?: Color;
   bgColor?: Color;
   children: string;
+  onClick: () => void;
 };
 
 // export const Button = () => {}
@@ -27,10 +28,15 @@ export function Button({
   children,
   color = "clouds",
   bgColor = "midnightBlue",
+  onClick,
 }: Props) {
   const styles = {
     color: palette[color],
     backgroundColor: palette[bgColor],
   };
-  return <button style={styles}>{children}</button>;
+  return (
+    <button style={styles} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
