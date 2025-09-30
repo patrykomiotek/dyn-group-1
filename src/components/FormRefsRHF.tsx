@@ -21,11 +21,12 @@ export function FormRefsRHF() {
     console.log(data);
   };
 
-  const { errors } = formState;
+  const { errors, isValid, isSubmitting } = formState;
   const watchedEmail = watch("email");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {!isValid && <p style={{ color: "red" }}>Invalid form</p>}
       <p>E-mail: {watchedEmail}</p>
       <Input
         label="E-mail"
@@ -50,7 +51,9 @@ export function FormRefsRHF() {
         {...register("favLanguage")}
       />
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Submitting..." : "Submit"}
+      </Button>
     </form>
   );
 }
