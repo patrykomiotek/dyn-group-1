@@ -3,15 +3,14 @@ import {
   type ChangeEventHandler,
   type FormEventHandler,
 } from "react";
-import { Button } from "../ui/Button";
-import { Input } from "../ui/Input";
+import { Button, Input } from "../ui";
 
 export function FormState() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   // const [favLanguage, setFavLanguage] = useState("");
   const [formState, setFormState] = useState({
-    email: "",
+    email: "test@wp.pl",
     password: "",
     favLanguage: "",
   });
@@ -41,16 +40,24 @@ export function FormState() {
           E-mail: {email}, password: {password}, favLanguage: {favLanguage}
         </p>
       </div>
-      <Input label="E-mail" id="email" type="email" onChange={handleChange} />
+      <Input
+        label="E-mail"
+        id="email"
+        value={email}
+        type="email"
+        onChange={handleChange}
+      />
       <Input
         label="Password"
         id="password"
         type="password"
+        value={password}
         onChange={handleChange}
       />
       <Input
         label="Favorite language"
         id="favLanguage"
+        value={favLanguage}
         onChange={handleChange}
       />
 

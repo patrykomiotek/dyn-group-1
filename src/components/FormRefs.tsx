@@ -1,6 +1,6 @@
-import { useRef, type FormEventHandler } from "react";
-import { Button } from "../ui/Button";
-import { Input } from "../ui/Input";
+import { useRef, type ChangeEventHandler, type FormEventHandler } from "react";
+// import { Button } from "../ui/index.ts -> ../ui/Button/index.ts -> ../ui/Button/Button.tsx";
+import { Button, Input } from "../ui";
 
 export function FormRefs() {
   const emailFieldRef = useRef<HTMLInputElement>(null);
@@ -16,9 +16,21 @@ export function FormRefs() {
     console.log({ email, password, favLanguage });
   };
 
+  const handleLanguageChange: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    console.log("value: ", event.target.value);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
-      <Input label="E-mail" id="email" type="email" ref={emailFieldRef} />
+      <Input
+        label="E-mail"
+        id="email"
+        type="email"
+        defaultValue="test@wp.pl"
+        ref={emailFieldRef}
+      />
       <Input
         label="Password"
         id="password"
@@ -29,6 +41,7 @@ export function FormRefs() {
         label="Favorite language"
         id="favLanguage"
         ref={favLanguageFieldRef}
+        onChange={handleLanguageChange}
       />
       <Button type="submit">Submit</Button>
     </form>

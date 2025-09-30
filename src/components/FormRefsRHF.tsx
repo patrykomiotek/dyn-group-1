@@ -2,8 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { Button } from "../ui/Button";
-import { Input } from "../ui/Input";
+import { Button, Input } from "../ui";
 
 const formSchema = z.object({
   email: z.email(),
@@ -27,6 +26,8 @@ export function FormRefsRHF() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {!isValid && <p style={{ color: "red" }}>Invalid form</p>}
+
+      {/* <FormSection watchedEmail={watchedEmail}> */}
       <p>E-mail: {watchedEmail}</p>
       <Input
         label="E-mail"
@@ -35,6 +36,7 @@ export function FormRefsRHF() {
         error={errors.email}
         {...register("email")}
       />
+      {/* </FormSection> */}
 
       <Input
         label="Password"
