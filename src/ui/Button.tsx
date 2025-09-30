@@ -1,8 +1,8 @@
-enum PALETTE {
-  emerald,
-  // EMERALD = "type/action", // 0
-  PETER_RIVER, // 1
-}
+// enum PALETTE {
+//   emerald,
+//   // EMERALD = "type/action", // 0
+//   PETER_RIVER, // 1
+// }
 
 const palette = {
   emerald: "#2ecc71",
