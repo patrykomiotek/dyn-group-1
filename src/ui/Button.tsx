@@ -4,7 +4,7 @@
 //   PETER_RIVER, // 1
 // }
 
-import type { ComponentProps } from "react";
+import { type ComponentProps, memo } from "react";
 
 const palette = {
   emerald: "#2ecc71",
@@ -31,20 +31,22 @@ type Props = {
 
 // export const Button = () => {}
 
-export function Button({
-  children,
-  color = "clouds",
-  bgColor = "midnightBlue",
-  // onClick,
-  ...rest
-}: Props) {
-  const styles = {
-    color: palette[color],
-    backgroundColor: palette[bgColor],
-  };
-  return (
-    <button style={styles} {...rest}>
-      {children}
-    </button>
-  );
-}
+export const Button = memo(
+  ({
+    children,
+    color = "clouds",
+    bgColor = "midnightBlue",
+    // onClick,
+    ...rest
+  }: Props) => {
+    const styles = {
+      color: palette[color],
+      backgroundColor: palette[bgColor],
+    };
+    return (
+      <button style={styles} {...rest}>
+        {children}
+      </button>
+    );
+  }
+);
