@@ -5,17 +5,15 @@ import { Button } from "../ui/Button";
 import { Text } from "../ui/Text";
 
 export function Generator() {
-  const state = useState(""); // 0 - current state value, 1 - callback to change the state
+  const [id, setId] = useState(uuidv4()); // 0 - current state value, 1 - callback to change the state
 
   const handleIdChange = () => {
-    // alert("Hello");
-    const newId = uuidv4();
-    state[1](newId);
+    setId(uuidv4());
   };
 
   return (
     <div>
-      <Text>{state[0]}</Text>
+      <Text>{id}</Text>
       <Button onClick={handleIdChange}>Regenerate</Button>
     </div>
   );
