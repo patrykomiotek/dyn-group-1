@@ -4,6 +4,8 @@
 //   PETER_RIVER, // 1
 // }
 
+import type { ComponentProps } from "react";
+
 const palette = {
   emerald: "#2ecc71",
   peterRiver: "#3498db",
@@ -15,12 +17,17 @@ const palette = {
 type Color = keyof typeof palette;
 // type Color = keyof typeof PALETTE;
 
+// type Props = {
+//   color?: Color;
+//   bgColor?: Color;
+//   children: string;
+//   onClick: () => void;
+// };
+
 type Props = {
   color?: Color;
   bgColor?: Color;
-  children: string;
-  onClick: () => void;
-};
+} & ComponentProps<"button">;
 
 // export const Button = () => {}
 
@@ -28,14 +35,15 @@ export function Button({
   children,
   color = "clouds",
   bgColor = "midnightBlue",
-  onClick,
+  // onClick,
+  ...rest
 }: Props) {
   const styles = {
     color: palette[color],
     backgroundColor: palette[bgColor],
   };
   return (
-    <button style={styles} onClick={onClick}>
+    <button style={styles} {...rest}>
       {children}
     </button>
   );
