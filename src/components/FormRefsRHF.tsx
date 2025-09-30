@@ -13,7 +13,7 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>;
 
 export function FormRefsRHF() {
-  const { register, handleSubmit, formState } = useForm<FormSchema>({
+  const { register, handleSubmit, formState, watch } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
   });
 
@@ -22,9 +22,11 @@ export function FormRefsRHF() {
   };
 
   const { errors } = formState;
+  const watchedEmail = watch("email");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <p>E-mail: {watchedEmail}</p>
       <Input
         label="E-mail"
         id="email"
