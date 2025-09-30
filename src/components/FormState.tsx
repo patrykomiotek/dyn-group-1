@@ -4,6 +4,7 @@ import {
   type FormEventHandler,
 } from "react";
 import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
 
 export function FormState() {
   // const [email, setEmail] = useState("");
@@ -40,18 +41,19 @@ export function FormState() {
           E-mail: {email}, password: {password}, favLanguage: {favLanguage}
         </p>
       </div>
-      <div>
-        <label htmlFor="email">E-mail</label>
-        <input id="email" type="email" onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="favLanguage">Favorite language</label>
-        <input id="favLanguage" type="text" onChange={handleChange} />
-      </div>
+      <Input label="E-mail" id="email" type="email" onChange={handleChange} />
+      <Input
+        label="Password"
+        id="password"
+        type="password"
+        onChange={handleChange}
+      />
+      <Input
+        label="Favorite language"
+        id="favLanguage"
+        onChange={handleChange}
+      />
+
       <Button type="submit">Submit</Button>
     </form>
   );

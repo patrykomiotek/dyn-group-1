@@ -1,7 +1,7 @@
 // import { Fragment } from "react";
 import "./App.css";
 import { FormRefs } from "./components/FormRefs";
-// import { FormState } from "./components/FormState";
+import { FormState } from "./components/FormState";
 // import { Generator } from "./components/Generator";
 // import { Button } from "./ui/Button";
 
