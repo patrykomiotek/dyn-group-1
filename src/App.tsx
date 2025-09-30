@@ -5,7 +5,7 @@ import { Text } from "./ui/Text";
 function App() {
   return (
     <div>
-      <Text color="green">Hello World!</Text>
+      <Text>Hello World!</Text>
     </div>
   );
 }
