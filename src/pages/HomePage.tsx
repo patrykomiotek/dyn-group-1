@@ -1,3 +1,4 @@
+import { AuthInfo } from "../components/Auth/AuthInfo";
 import { Counter } from "../components/Counter";
 import { Stepper } from "../components/Stepper";
 import { ValueCollector } from "../components/ValueCollector";
@@ -7,10 +8,11 @@ export function HomePage() {
   return (
     <div className="space-y-4">
       <h1 className="text-3xl">Home Page</h1>
-      <Stepper />
+      <AuthInfo />
+      {/* <Stepper />
       <ValueCollector />
       <ViewPort />
-      <Counter />
+      <Counter /> */}
     </div>
   );
 }
