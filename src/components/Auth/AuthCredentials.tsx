@@ -1,14 +1,14 @@
-// import { useContext } from "react";
+import { useCallback } from "react";
 // import { AuthContext } from "./AuthContext";
 import { useAuthContext } from "./AuthContext";
 import { Button } from "../../ui";
 
 export function AuthCredentials() {
-  const context = useAuthContext();
+  const context = useAuthContext(); // state cell (AuthProvider)
 
-  const handleOnClick = () => {
+  const handleOnClick = useCallback(() => {
     context.toggle();
-  };
+  }, []);
 
   return (
     <div>
