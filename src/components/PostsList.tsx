@@ -1,36 +1,57 @@
+import { useEffect, useState } from "react";
+
 interface PostDto {
   id: number;
   title: string;
-  content: string;
+  body: string;
 }
 
 interface PostsListDto {
   records: PostDto[];
 }
 
-const data: PostsListDto = {
-  records: [
-    {
-      id: 1,
-      title: "Lorem",
-      content: "ipsum",
-    },
-    {
-      id: 2,
-      title: "Sit dolor",
-      content: "amit",
-    },
-  ],
-};
+// const data: PostDto[] = [
+//   {
+//     id: 1,
+//     title: "Lorem",
+//     body: "ipsum",
+//   },
+//   {
+//     id: 2,
+//     title: "Sit dolor",
+//     body: "amit",
+//   },
+// ];
 
 export function PostsList() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [data, setData] = useState<PostDto[]>([]);
+
+  useEffect(() => {
+    // GET
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((responseData) => {
+        setData(responseData);
+      })
+      .catch(() => {
+        setIsError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
     <div>
       <h2 className="text-3xl">React posts</h2>
-      {data.records.map((elem) => (
-        <div key={elem.id}>
+      {isLoading && <p>Loading...</p>}
+      {isError && <p>Component error</p>}
+      {data.map((elem) => (
+        <div key={elem.id} className="space-y-6">
           <h2 className="text-2xl">{elem.title}</h2>
-          <p>{elem.content}</p>
+          <p>{elem.body}</p>
         </div>
       ))}
     </div>
