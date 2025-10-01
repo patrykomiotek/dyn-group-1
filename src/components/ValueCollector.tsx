@@ -3,6 +3,7 @@ import { Button } from "../ui";
 
 export function ValueCollector() {
   const [count, setCount] = useState(0);
+
   const contRef = useRef(0);
   let countVar = 0;
 
