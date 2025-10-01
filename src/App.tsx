@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="p-4">
       {/* <AuthContext> */}
+
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
