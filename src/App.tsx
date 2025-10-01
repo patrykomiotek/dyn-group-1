@@ -6,7 +6,7 @@ import { AuthContext } from "./components/Auth/AuthContext";
 function App() {
   return (
     <div className="p-4">
-      {/* <AuthContext.Provider> */}
+      {/* <AuthContext> */}
       <AuthContext.Provider value={{ isLoggedIn: true }}>
         <RouterProvider router={router} />
       </AuthContext.Provider>
