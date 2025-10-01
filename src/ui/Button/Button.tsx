@@ -44,7 +44,7 @@ export const Button = memo(
       backgroundColor: palette[bgColor],
     };
     return (
-      <button style={styles} {...rest}>
+      <button style={styles} className="p-2 rounded-md" {...rest}>
         {children}
       </button>
     );

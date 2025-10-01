@@ -19,9 +19,16 @@ export const Input = forwardRef(
     const reactId = useId();
     const componentId = id ? id : reactId;
     return (
-      <div>
-        <label htmlFor={componentId}>{label}</label>
-        <input id={componentId} ref={ref} {...rest} />
+      <div className="flex flex-col my-4">
+        <label className="justify-start mr-4" htmlFor={componentId}>
+          {label}
+        </label>
+        <input
+          id={componentId}
+          className="outline outline-offset outline-solid p-1"
+          ref={ref}
+          {...rest}
+        />
         {error && <p style={{ color: "red" }}>{`${error.message}`}</p>}
       </div>
     );
