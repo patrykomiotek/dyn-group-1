@@ -1,13 +1,29 @@
-import { createContext, type Dispatch, type SetStateAction } from "react";
+import { createContext, useState } from "react";
 
 interface AuthContextProps {
   isLoggedIn: boolean;
-  setIsLoggedIn: Dispatch<SetStateAction<boolean>>;
+  toggle: () => void;
+  login: () => void;
+  logout: () => void;
 }
 
-const defaultValue: AuthContextProps = {
-  isLoggedIn: false,
-  setIsLoggedIn: () => null,
+export const AuthContext = createContext<AuthContextProps | null>(null);
+
+const useAuth = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const toggle = () => setIsLoggedIn((value) => !value);
+  const login = () => setIsLoggedIn(true);
+  const logout = () => setIsLoggedIn(false);
+
+  return { isLoggedIn, toggle, login, logout };
 };
 
-export const AuthContext = createContext(defaultValue);
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const { isLoggedIn, toggle, login, logout } = useAuth();
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, toggle, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
