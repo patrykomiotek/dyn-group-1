@@ -1,8 +1,13 @@
 import { useRef, type ChangeEventHandler, type FormEventHandler } from "react";
 // import { Button } from "../ui/index.ts -> ../ui/Button/index.ts -> ../ui/Button/Button.tsx";
 import { Button, Input } from "../ui";
+import type { RegistrationFormDto } from "../types/RegistrationFormDto";
 
-export function FormRefs() {
+type Props = {
+  onSubmit: (data: RegistrationFormDto) => void;
+};
+
+export function FormRefs({ onSubmit }: Props) {
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const favLanguageFieldRef = useRef<HTMLInputElement>(null);
@@ -13,7 +18,8 @@ export function FormRefs() {
     const password = passwordFieldRef.current?.value || "";
     const favLanguage = favLanguageFieldRef.current?.value || "";
 
-    console.log({ email, password, favLanguage });
+    // console.log({ email, password, favLanguage });
+    onSubmit({ email, password, favLanguage });
   };
 
   const handleLanguageChange: ChangeEventHandler<HTMLInputElement> = (

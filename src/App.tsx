@@ -1,6 +1,7 @@
 // import { Fragment } from "react";
 import "./App.css";
 import { FormRefsRHF } from "./components/FormRefsRHF";
+import { RegistrationPage } from "./pages/RegistrationPage";
 // import { FormRefs } from "./components/FormRefs";
 // import { FormState } from "./components/FormState";
 // import { Generator } from "./components/Generator";
@@ -21,7 +22,8 @@ function App() {
       {/* <Generator /> */}
       {/* <FormState /> */}
       {/* <FormRefs /> */}
-      <FormRefsRHF />
+      {/* <FormRefsRHF /> */}
+      <RegistrationPage />
     </div>
   );
 }
