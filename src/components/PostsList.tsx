@@ -25,6 +25,8 @@ interface PostsListDto {
 // ];
 
 export function PostsList() {
+  // const {data, isLoading, isError} = useApi<PostDto[]>('https://')
+
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<PostDto[]>([]);
