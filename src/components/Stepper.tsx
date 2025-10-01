@@ -1,4 +1,4 @@
-import { useReducer, useRef, type KeyboardEventHandler } from "react";
+import { useReducer, type KeyboardEventHandler } from "react";
 import { Button, Input } from "../ui";
 
 interface State {
@@ -61,7 +61,7 @@ export function Stepper() {
 
   return (
     <div>
-      <div>
+      <div className="flex space-x-2 items-center">
         <Button onClick={handleDecrease}>-</Button>
         <p>{state.value}</p>
         <Button onClick={handleIncrease}>+</Button>
