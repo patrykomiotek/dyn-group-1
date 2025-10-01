@@ -1,20 +1,15 @@
 import { RouterProvider } from "react-router-dom";
 
 import { router } from "./routes";
-import { AuthContext } from "./components/Auth/AuthContext";
-import { useState } from "react";
+import { AuthProvider } from "./components/Auth/AuthCredentials";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
     <div className="p-4">
       {/* <AuthContext> */}
-      <AuthContext.Provider
-        value={{ isLoggedIn: isLoggedIn, setIsLoggedIn: setIsLoggedIn }}
-      >
+      <AuthProvider>
         <RouterProvider router={router} />
-      </AuthContext.Provider>
+      </AuthProvider>
     </div>
   );
 }
