@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface PostDto {
@@ -28,19 +29,33 @@ export function PostsList() {
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<PostDto[]>([]);
 
+  const loadData = async () => {
+    try {
+      const response = await axios.get<PostDto[]>(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
+      setData(response.data);
+    } catch {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
+
+    // fetch("https://jsonplaceholder.typicode.com/posts")
+    //   .then((response) => response.json())
+    //   .then((responseData) => {
+    //     setData(responseData);
+    //   })
+    //   .catch(() => {
+    //     setIsError(true);
+    //   })
+    //   .finally(() => {
+    //     setIsLoading(false);
+    //   });
+  };
+
   useEffect(() => {
-    // GET
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((responseData) => {
-        setData(responseData);
-      })
-      .catch(() => {
-        setIsError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    loadData();
   }, []);
 
   return (
