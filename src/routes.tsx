@@ -4,6 +4,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { RegistrationPage } from "./pages/RegistrationPage";
+import { Layout } from "./components/Layout/Layout";
 
 type Route = Record<
   string,
@@ -27,10 +28,16 @@ export const Route: Route = {
 export const router = createBrowserRouter([
   {
     path: Route.HOME.path, // "/"",
-    element: <HomePage />,
-  },
-  {
-    path: Route.REGISTRATION.path,
-    element: <RegistrationPage />,
+    element: <Layout />,
+    children: [
+      {
+        path: Route.HOME.path,
+        element: <HomePage />,
+      },
+      {
+        path: Route.REGISTRATION.path,
+        element: <RegistrationPage />,
+      },
+    ],
   },
 ]);
