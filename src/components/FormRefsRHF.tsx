@@ -25,7 +25,7 @@ export function FormRefsRHF() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {!isValid && <p style={{ color: "red" }}>Invalid form</p>}
+      {!isValid && <p className="text-red-500">Invalid form</p>}
 
       {/* <FormSection watchedEmail={watchedEmail}> */}
       <p>E-mail: {watchedEmail}</p>

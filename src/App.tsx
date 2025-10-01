@@ -1,7 +1,7 @@
 // import { Fragment } from "react";
 import "./App.css";
-// import { FormRefsRHF } from "./components/FormRefsRHF";
-import { FormRefs } from "./components/FormRefs";
+import { FormRefsRHF } from "./components/FormRefsRHF";
+// import { FormRefs } from "./components/FormRefs";
 // import { FormState } from "./components/FormState";
 // import { Generator } from "./components/Generator";
 // import { Button } from "./ui/Button";
@@ -10,7 +10,7 @@ import { FormRefs } from "./components/FormRefs";
 
 function App() {
   return (
-    <>
+    <div className="p-4">
       {/* <div>
         <Text>Hello World!</Text>
       </div>
@@ -20,9 +20,9 @@ function App() {
       <Button>Click me too</Button> */}
       {/* <Generator /> */}
       {/* <FormState /> */}
-      <FormRefs />
-      {/* <FormRefsRHF /> */}
-    </>
+      {/* <FormRefs /> */}
+      <FormRefsRHF />
+    </div>
   );
 }
 

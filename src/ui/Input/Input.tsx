@@ -29,7 +29,7 @@ export const Input = forwardRef(
           ref={ref}
           {...rest}
         />
-        {error && <p style={{ color: "red" }}>{`${error.message}`}</p>}
+        {error && <p className="text-red-500">{`${error.message}`}</p>}
       </div>
     );
   }
