@@ -1,5 +1,5 @@
-import { FormRefs } from "../components/FormRefs";
-import type { RegistrationFormDto } from "../shared/types/RegistrationFormDto";
+import { FormRefs } from "@/components/FormRefs";
+import type { RegistrationFormDto } from "@/shared/types/RegistrationFormDto";
 
 export function RegistrationPage() {
   const onSubmit = ({ email, password, favLanguage }: RegistrationFormDto) => {
