@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { Route } from "../../../routes";
+import { useAppSelector } from "@/shared/hooks/redux";
 
 export function Menu() {
+  const numberOfProducts = useAppSelector(
+    (state) => state.basket.products.length
+  );
+
   return (
     <nav>
       <ul className="flex space-x-2">
@@ -30,6 +35,7 @@ export function Menu() {
             Login
           </Link>
         </li>
+        <li>Products: {numberOfProducts}</li>
       </ul>
     </nav>
   );

@@ -1,8 +1,8 @@
-import { useApi } from "shared/hooks/useApi";
-import { fetchProducts } from "@/features/products/services/products";
-import type { ProductDto } from "shared/types/api";
-import { ProductList } from "@/features/products/components/ProductsList";
 import { useQuery } from "@tanstack/react-query";
+
+import { fetchProducts } from "@/features/products/services/products";
+import { ProductList } from "@/features/products/components/ProductsList";
+import type { ProductDto } from "@/features/products/types";
 
 export function ProductsListPage() {
   // const { data, isLoading, isError } = useApi<ProductDto[]>(fetchProducts);

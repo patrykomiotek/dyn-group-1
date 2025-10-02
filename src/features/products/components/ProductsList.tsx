@@ -1,11 +1,18 @@
-import type { ProductDto } from "shared/types/api";
 import { Link } from "react-router-dom";
+import { Button } from "@/shared/ui";
+import { useAppDispatch } from "@/shared/hooks/redux";
+import { add } from "@/features/basket/basketSlice";
+import type { ProductDto } from "../types";
 
 type Props = {
   data: ProductDto[];
 };
 
 export function ProductList({ data }: Props) {
+  const dispatch = useAppDispatch();
+
+  const handleAddToBasket = (product: ProductDto) => dispatch(add(product));
+
   return (
     <div>
       {data.map((elem) => (
@@ -14,6 +21,7 @@ export function ProductList({ data }: Props) {
             <Link to={`/products/${elem.id}`} className="text-blue-600">
               {elem.fields.name}
             </Link>
+            <Button onClick={() => handleAddToBasket(elem)}>+</Button>
           </h2>
           <p>{elem.fields.description}</p>
         </div>
