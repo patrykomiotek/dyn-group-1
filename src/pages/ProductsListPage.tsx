@@ -1,22 +1,6 @@
-import axios from "axios";
+import { fetchProducts } from "@/services/products";
+import type { ProductDto } from "@/types/api";
 import { useEffect, useState } from "react";
-
-interface ApiListResponse<T> {
-  records: T[];
-}
-
-interface ProductDto {
-  id: number;
-  fields: {
-    name: string;
-    description: string;
-    price: number;
-  };
-}
-
-// webpack: process.env.API_TOKEN
-// vite: import.meta.env.VITE_PUBLIC_API_TOKEN
-const API_TOKEN = import.meta.env.VITE_API_TOKEN || "";
 
 export function ProductsListPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,17 +8,9 @@ export function ProductsListPage() {
   const [data, setData] = useState<ProductDto[]>([]);
 
   const loadData = async () => {
-    console.log({ API_TOKEN, otherVars: import.meta.env });
     try {
-      const response = await axios.get<ApiListResponse<ProductDto>>(
-        "https://api.airtable.com/v0/appn8kDF6gXKpZ00E/products",
-        {
-          headers: {
-            Authorization: `Bearer ${API_TOKEN}`,
-          },
-        }
-      );
-      setData(response.data.records);
+      const response = await fetchProducts();
+      setData(response.records);
     } catch {
       setIsError(true);
     } finally {
