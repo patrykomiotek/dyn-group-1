@@ -7,6 +7,7 @@ import { Layout } from "@/shared/components/Layout/Layout";
 import { ProductsListPage } from "./pages/ProductsListPage";
 import { CreateProductPage } from "./pages/CreateProductPage";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
+import { LoginPage } from "./pages/LoginPage";
 
 type Route = Record<
   string,
@@ -37,6 +38,10 @@ export const Route: Route = {
     path: "/products/:id",
     title: "Product Details",
   },
+  LOGIN: {
+    path: "/login",
+    title: "Login",
+  },
 };
 
 export const router = createBrowserRouter([
@@ -59,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: Route.PRODUCT_DETAILS.path,
         element: <ProductDetailsPage />,
+      },
+      {
+        path: Route.LOGIN.path,
+        element: <LoginPage />,
       },
     ],
   },

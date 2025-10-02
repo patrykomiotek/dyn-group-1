@@ -25,6 +25,11 @@ export function Menu() {
             Create product
           </Link>
         </li>
+        <li>
+          <Link to={Route.LOGIN.path} className="text-blue-600">
+            Login
+          </Link>
+        </li>
       </ul>
     </nav>
   );
