@@ -1,8 +1,17 @@
 import { RouterProvider } from "react-router-dom";
 
 import { router } from "./routes";
-import { AuthProvider } from "./components/Auth/AuthContext";
-import { AuthCredentials } from "./components/Auth/AuthCredentials";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 hours
+      retry: 1,
+    },
+  },
+});
 
 function App() {
   return (
@@ -10,7 +19,10 @@ function App() {
       {/* <AuthContext> */}
 
       {/* <AuthProvider> */}
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={true} />
+      </QueryClientProvider>
       {/* </AuthProvider> */}
     </div>
   );

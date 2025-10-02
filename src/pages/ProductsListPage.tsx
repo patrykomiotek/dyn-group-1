@@ -2,9 +2,14 @@ import { useApi } from "@/hooks/useApi";
 import { fetchProducts } from "@/features/products/services/products";
 import type { ProductDto } from "@/types/api";
 import { ProductList } from "@/features/products/components/ProductsList";
+import { useQuery } from "@tanstack/react-query";
 
 export function ProductsListPage() {
-  const { data, isLoading, isError } = useApi<ProductDto[]>(fetchProducts);
+  // const { data, isLoading, isError } = useApi<ProductDto[]>(fetchProducts);
+  const { data, isLoading, isError } = useQuery<ProductDto[]>({
+    queryKey: ["products-list"],
+    queryFn: fetchProducts,
+  });
 
   // const records = data?.records
 
