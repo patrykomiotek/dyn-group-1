@@ -15,6 +15,16 @@ export function Menu() {
             Registration
           </Link>
         </li>
+        <li>
+          <Link to={Route.PRODUCTS_LIST.path} className="text-blue-600">
+            Products
+          </Link>
+        </li>
+        <li>
+          <Link to={Route.CREATE_PRODUCT.path} className="text-blue-600">
+            Create product
+          </Link>
+        </li>
       </ul>
     </nav>
   );

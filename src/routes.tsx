@@ -5,6 +5,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { Layout } from "./components/Layout/Layout";
+import { ProductsListPage } from "./pages/ProductsListPage";
+import { CreateProductPage } from "./pages/CreateProductPage";
 
 type Route = Record<
   string,
@@ -23,6 +25,14 @@ export const Route: Route = {
     path: "/registration",
     title: "Registration",
   },
+  PRODUCTS_LIST: {
+    path: "/products",
+    title: "Products",
+  },
+  CREATE_PRODUCT: {
+    path: "/create-product",
+    title: "Create Product",
+  },
 };
 
 export const router = createBrowserRouter([
@@ -35,8 +45,12 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: Route.REGISTRATION.path,
-        element: <RegistrationPage />,
+        path: Route.PRODUCTS_LIST.path,
+        element: <ProductsListPage />,
+      },
+      {
+        path: Route.CREATE_PRODUCT.path,
+        element: <CreateProductPage />,
       },
     ],
   },
