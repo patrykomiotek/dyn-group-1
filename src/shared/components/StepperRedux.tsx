@@ -33,7 +33,11 @@ export function StepperRedux() {
         <Button onClick={handleIncrease}>+</Button>
       </div>
       <div>
-        <Input label="" type="number" onKeyDown={handleKeyboardChange} />
+        <Input
+          label="Type a number"
+          type="number"
+          onKeyDown={handleKeyboardChange}
+        />
       </div>
     </div>
   );
