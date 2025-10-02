@@ -1,56 +1,46 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { redirect } from "react-router-dom";
 
 import { Button, Input } from "../../../ui";
+import { createProductSchema, type CreateProductDto } from "../types";
+import { crateProduct } from "../services/products";
 
-const formSchema = z.object({
-  email: z.email(),
-  password: z.string().min(3, { error: "Too short" }),
-  favLanguage: z.enum(["js", "java", "c#"]),
-});
-type FormSchema = z.infer<typeof formSchema>;
-
-export function FormRefsRHF() {
-  const { register, handleSubmit, formState, watch } = useForm<FormSchema>({
-    resolver: zodResolver(formSchema),
+export function CreateProduct() {
+  const { register, handleSubmit, formState } = useForm<CreateProductDto>({
+    resolver: zodResolver(createProductSchema),
   });
 
-  const onSubmit: SubmitHandler<FormSchema> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<CreateProductDto> = async (data) => {
+    // console.log(data);
+    try {
+      await crateProduct(data);
+      // react-toastify
+      redirect("/products"); //
+    } catch {
+      // display error message
+    }
   };
 
   const { errors, isValid, isSubmitting } = formState;
-  const watchedEmail = watch("email");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {!isValid && <p className="text-red-500">Invalid form</p>}
 
-      {/* <FormSection watchedEmail={watchedEmail}> */}
-      <p>E-mail: {watchedEmail}</p>
-      <Input
-        label="E-mail"
-        id="email"
-        type="email"
-        error={errors.email}
-        {...register("email")}
-      />
-      {/* </FormSection> */}
+      <Input label="Name" error={errors.name} {...register("name")} />
 
       <Input
-        label="Password"
-        id="password"
-        type="password"
-        error={errors.password}
-        {...register("password")}
+        label="Description"
+        error={errors.description}
+        {...register("description")}
       />
 
       <Input
-        label="Favorite language"
-        id="favLanguage"
-        error={errors.favLanguage}
-        {...register("favLanguage")}
+        label="Price"
+        type="number"
+        error={errors.price}
+        {...register("price", { valueAsNumber: true })}
       />
 
       <Button type="submit" disabled={isSubmitting}>

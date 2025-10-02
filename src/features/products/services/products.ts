@@ -1,9 +1,6 @@
-import type {
-  ApiListResponse,
-  CreateProductDto,
-  ProductDto,
-} from "@/types/api";
+import type { ApiListResponse } from "@/types/api";
 import { api } from "../../../services/api";
+import type { CreateProductDto, ProductDto } from "../types";
 
 export const fetchProducts = async () => {
   const response = await api.get<ApiListResponse<ProductDto>>("/products");
@@ -13,7 +10,7 @@ export const fetchProducts = async () => {
 
 export const crateProduct = async (data: CreateProductDto) => {
   const response = await api.post("/products", {
-    records: [data],
+    records: [{ fields: data }],
   });
 
   return response;
