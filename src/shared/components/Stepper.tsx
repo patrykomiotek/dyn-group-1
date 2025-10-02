@@ -1,5 +1,5 @@
 import { useReducer, type KeyboardEventHandler } from "react";
-import { Button, Input } from "@/ui";
+import { Button, Input } from "shared/ui";
 
 interface State {
   value: number;

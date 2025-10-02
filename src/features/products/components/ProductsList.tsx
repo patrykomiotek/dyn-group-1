@@ -1,4 +1,4 @@
-import type { ProductDto } from "@/types/api";
+import type { ProductDto } from "shared/types/api";
 import { Link } from "react-router-dom";
 
 type Props = {

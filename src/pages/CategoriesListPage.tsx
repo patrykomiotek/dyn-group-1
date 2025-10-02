@@ -1,5 +1,5 @@
-import { fetchCategories } from "@/services/categories";
-import type { CategoryDto } from "@/types/api";
+import { fetchCategories } from "shared/services/categories";
+import type { CategoryDto } from "shared/types/api";
 import { useEffect, useState } from "react";
 
 export function CategoriesListPage() {

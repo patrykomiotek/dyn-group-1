@@ -1,7 +1,7 @@
 import { useRef, type ChangeEventHandler, type FormEventHandler } from "react";
 // import { Button } from "../ui/index.ts -> ../ui/Button/index.ts -> ../ui/Button/Button.tsx";
 import { Button, Input } from "../ui";
-import type { RegistrationFormDto } from "../types/RegistrationFormDto";
+import type { RegistrationFormDto } from "../shared/types/RegistrationFormDto";
 
 type Props = {
   onSubmit: (data: RegistrationFormDto) => void;

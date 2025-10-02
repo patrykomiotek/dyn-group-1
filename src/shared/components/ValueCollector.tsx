@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Button } from "@/ui";
+import { Button } from "shared/ui";
 
 export function ValueCollector() {
   const [count, setCount] = useState(0);

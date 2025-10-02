@@ -3,8 +3,7 @@
 // memoryRouter - /
 import { createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
-import { RegistrationPage } from "./pages/RegistrationPage";
-import { Layout } from "./components/Layout/Layout";
+import { Layout } from "@/shared/components/Layout/Layout";
 import { ProductsListPage } from "./pages/ProductsListPage";
 import { CreateProductPage } from "./pages/CreateProductPage";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";

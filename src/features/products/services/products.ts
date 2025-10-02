@@ -1,5 +1,5 @@
-import type { ApiListResponse } from "@/types/api";
-import { api } from "../../../services/api";
+import type { ApiListResponse } from "shared/types/api";
+import { api } from "../../../shared/services/api";
 import type { CreateProductDto, ProductDto } from "../types";
 
 export const fetchProducts = async () => {

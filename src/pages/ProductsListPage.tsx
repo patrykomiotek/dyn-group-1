@@ -1,6 +1,6 @@
-import { useApi } from "@/hooks/useApi";
+import { useApi } from "shared/hooks/useApi";
 import { fetchProducts } from "@/features/products/services/products";
-import type { ProductDto } from "@/types/api";
+import type { ProductDto } from "shared/types/api";
 import { ProductList } from "@/features/products/components/ProductsList";
 import { useQuery } from "@tanstack/react-query";
 

@@ -1,6 +1,6 @@
 import { fetchProduct } from "@/features/products/services/products";
 import type { ProductDto } from "@/features/products/types";
-import { useApi } from "@/hooks/useApi";
+import { useApi } from "shared/hooks/useApi";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 

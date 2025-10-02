@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Route } from "../../routes";
+import { Route } from "../../../routes";
 
 export function Menu() {
   return (
