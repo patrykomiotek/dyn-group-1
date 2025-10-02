@@ -1,6 +1,6 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Button, Input } from "../../../ui";
 import { createProductSchema, type CreateProductDto } from "../types";
@@ -10,13 +10,14 @@ export function CreateProduct() {
   const { register, handleSubmit, formState } = useForm<CreateProductDto>({
     resolver: zodResolver(createProductSchema),
   });
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<CreateProductDto> = async (data) => {
     // console.log(data);
     try {
       await crateProduct(data);
       // react-toastify
-      await redirect("/products"); //
+      navigate("/products");
       // push("/products")
       // router.push("/products")
     } catch {
