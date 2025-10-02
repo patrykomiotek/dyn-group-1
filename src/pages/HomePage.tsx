@@ -1,4 +1,5 @@
-import { PostsList } from "@/components/PostsList";
+// import { PostsList } from "@/components/PostsList";
+import { StepperRedux } from "@/shared/components/StepperRedux";
 // import { AuthInfo } from "@/components/Auth/AuthInfo";
 // import { Counter } from "@/components/Counter";
 // import { Stepper } from "@/components/Stepper";
@@ -9,7 +10,8 @@ export function HomePage() {
   return (
     <div className="space-y-4">
       <h1 className="text-3xl">Home Page</h1>
-      <PostsList />
+      <StepperRedux />
+      {/* <PostsList /> */}
       {/* <AuthInfo /> */}
       {/* <Stepper />
       <ValueCollector />
