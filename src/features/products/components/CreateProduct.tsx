@@ -16,7 +16,9 @@ export function CreateProduct() {
     try {
       await crateProduct(data);
       // react-toastify
-      redirect("/products"); //
+      await redirect("/products"); //
+      // push("/products")
+      // router.push("/products")
     } catch {
       // display error message
     }

@@ -5,6 +5,12 @@ import type { CreateProductDto, ProductDto } from "../types";
 export const fetchProducts = async () => {
   const response = await api.get<ApiListResponse<ProductDto>>("/products");
 
+  return response.data.records;
+};
+
+export const fetchProduct = async (id: string | undefined) => {
+  const response = await api.get<ProductDto>(`/products/${id}`);
+
   return response.data;
 };
 

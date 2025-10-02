@@ -11,7 +11,7 @@ export const useApi = <T>(fetcher: Function) => {
   const loadData = async () => {
     try {
       const response = await fetcher();
-      setData(response.records);
+      setData(response);
     } catch {
       setIsError(true);
     } finally {
