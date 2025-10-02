@@ -1,6 +1,7 @@
 import { useApi } from "@/hooks/useApi";
-import { fetchProducts } from "@/services/products";
+import { fetchProducts } from "@/features/products/services/products";
 import type { ProductDto } from "@/types/api";
+import { ProductList } from "@/features/products/components/ProductsList";
 
 export function ProductsListPage() {
   const { data, isLoading, isError } = useApi<ProductDto[]>(fetchProducts);
@@ -32,13 +33,7 @@ export function ProductsListPage() {
 
       {isLoading && <p>Loading...</p>}
       {isError && <p>Component error</p>}
-      {data &&
-        data.map((elem) => (
-          <div key={elem.id} className="space-y-6">
-            <h2 className="text-2xl">{elem.fields.name}</h2>
-            <p>{elem.fields.description}</p>
-          </div>
-        ))}
+      {data && <ProductList data={data} />}
     </div>
   );
 }

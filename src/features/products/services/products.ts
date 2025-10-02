@@ -3,7 +3,7 @@ import type {
   CreateProductDto,
   ProductDto,
 } from "@/types/api";
-import { api } from "./api";
+import { api } from "../../../services/api";
 
 export const fetchProducts = async () => {
   const response = await api.get<ApiListResponse<ProductDto>>("/products");
